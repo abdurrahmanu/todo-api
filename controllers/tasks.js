@@ -1,29 +1,31 @@
-const express = require('express')
+const Task = require('../models/Task')
 
 const getAllTasks = (req, res) => {
-
+    res.send('get All tasks')
 };
 
-const addTask = (req, res) => {
-
+const createTask = async (req, res) => {
+    const task = await Task.create(req.body)
+    res.json(task)
 };
 
 const getTask = (req, res) => {
-    res.send('This is my own api')
+    res.json(req.params.id)
 };
 
 const updateTask = (req, res) => {
-
+    res.send('update this task')
 };
 
 const deleteTask = (req, res) => {
-
+    res.send('delete this task')
 };
 
 module.exports = {
     getAllTasks,
-    addTask,
+    createTask,
     getTask,
     updateTask,
     deleteTask,
 };
+
